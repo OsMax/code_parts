@@ -20,10 +20,10 @@ const Header = () => {
         onChange={handleChange}
         className={css.select}
       >
-        <option value="" disabled>
-          Виберіть...
+        <option value="" disabled style={{ color: "#888" }}>
+          select an item...
         </option>
-        <option value="option1">Опція 1</option>
+        <option value="option1">SingUp</option>
         <option value="option2">Опція 2</option>
         <option value="option3">Опція 3</option>
       </select>
