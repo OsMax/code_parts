@@ -1,4 +1,6 @@
-export const example = `const array = ["example 1", "example 2", "example 3"];
+export const example = `//EXAMPLE CODE
+
+const array = ["example 1", "example 2", "example 3"];
 
 const List = ({array}) => {
   return (
