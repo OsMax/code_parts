@@ -1,23 +1,8 @@
-import React, { useEffect } from "react";
-import Prism from "prismjs";
-import "prismjs/themes/prism-tomorrow.min.css";
-import "prismjs/components/prism-javascript";
-import "prismjs/components/prism-css";
-import { example } from "./ListExample";
+export const example = `const array = ["example 1", "example 2", "example 3"];
 
-const array = ["example 1", "example 2", "example 3"];
-
-const List = () => {
-  useEffect(() => {
-    Prism.highlightAll();
-  }, []);
-
+const List = ({array}) => {
   return (
-    <div style={{ padding: 20 }}>
-      <h1 style={{ color: "#fff", fontSize: 20 }}>
-        <span style={{ color: "rgb(199, 120, 221)" }}>/</span>list
-      </h1>
-      <div
+     <div
         style={{
           display: "flex",
           flexDirection: "row",
@@ -47,11 +32,6 @@ const List = () => {
           })}
         </ul>
       </div>
-      <pre style={{ maxHeight: 200 }}>
-        <code className="language-javascript">{example}</code>
-      </pre>
-    </div>
   );
 };
-
-export default List;
+`;
