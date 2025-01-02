@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 
 const SingUp = () => {
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    password2: "",
+  });
   const [errors, setErrors] = useState({});
   const [isLogin, setIsLogin] = useState(true);
 
