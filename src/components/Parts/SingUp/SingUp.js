@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const SingUp = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
-  const [successMessage, setSuccessMessage] = useState("");
+  const [isLogin, setIsLogin] = useState(true);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -61,6 +61,48 @@ const SingUp = () => {
               borderRadius: "4px",
             }}
           />
+          <label
+            htmlFor="password"
+            style={{ display: "block", marginBottom: "5px" }}
+          >
+            Password:
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            style={{
+              width: "100%",
+              padding: "10px",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+            }}
+          />
+          {!isLogin && (
+            <>
+              <label
+                htmlFor="password"
+                style={{ display: "block", marginBottom: "5px" }}
+              >
+                Password:
+              </label>
+              <input
+                type="password"
+                id="password2"
+                name="password2"
+                value={formData.password}
+                onChange={handleChange}
+                style={{
+                  width: "100%",
+                  padding: "10px",
+                  border: "1px solid #ccc",
+                  borderRadius: "4px",
+                }}
+              />
+            </>
+          )}
           {errors.password && (
             <p style={{ color: "red", fontSize: "14px" }}>{errors.password}</p>
           )}
