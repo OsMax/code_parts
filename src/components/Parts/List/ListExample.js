@@ -1,8 +1,21 @@
 export const example = `//EXAMPLE CODE
 
-const array = ["example 1", "example 2", "example 3"];
 
 const List = ({array}) => {
+  const [list, setList] = useState([]);
+
+  const getList = async () => {
+    try {
+      const { data } = await axios.get("http://localhost:3000/api/list");
+      setList(data); 
+    } catch (error) {
+      console.error("Error fetching list:", error.message);
+    }
+  };
+  useEffect(() => {
+    getList();
+  }, []);
+
   return (
      <div
         style={{
@@ -25,13 +38,17 @@ const List = ({array}) => {
             color: "#fff",
           }}
         >
-          {array.map((item) => {
-            return (
-              <li style={{ padding: 6, boxShadow: "2px 2px 2px #bbb" }}>
-                {item}
-              </li>
-            );
-          })}
+            {list.length > 0 ? (
+            list.map((item) => {
+              return (
+                <li style={{ padding: 6, boxShadow: "2px 2px 2px #bbb" }}>
+                  {item.item}
+                </li>
+              );
+            })
+          ) : (
+            <p style={{ color: "#bbb" }}>No items available</p>
+          )}
         </ul>
       </div>
   );
