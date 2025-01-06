@@ -18,12 +18,24 @@ const SingUp = () => {
   };
 
   return (
-    <div>
-      <form>
+    <div
+      style={{
+        margin: "auto",
+        marginTop: "38px",
+        maxWidth: "320px",
+        padding: "10px",
+        borderRight: " 2px solid #ccc",
+        borderBottom: "2px solid #ccc",
+        // box-shadow: "2px 2px 2px #bbb";
+        borderRadius: "10px",
+        boxShadow: "2px 2px 2px #bbb",
+      }}
+    >
+      <form style={{ width: "100%" }}>
         <div style={{ marginBottom: "15px" }}>
           <label
             htmlFor="email"
-            style={{ display: "block", marginBottom: "5px" }}
+            style={{ display: "block", marginBottom: "5px", color: "#ddd" }}
           >
             Email:
           </label>
@@ -34,6 +46,7 @@ const SingUp = () => {
             value={formData.email}
             onChange={handleChange}
             style={{
+              boxSizing: "border-box",
               width: "100%",
               padding: "10px",
               border: "1px solid #ccc",
@@ -48,7 +61,7 @@ const SingUp = () => {
         <div style={{ marginBottom: "15px" }}>
           <label
             htmlFor="password"
-            style={{ display: "block", marginBottom: "5px" }}
+            style={{ display: "block", marginBottom: "5px", color: "#ddd" }}
           >
             Password:
           </label>
@@ -59,6 +72,7 @@ const SingUp = () => {
             value={formData.password}
             onChange={handleChange}
             style={{
+              boxSizing: "border-box",
               width: "100%",
               padding: "10px",
               border: "1px solid #ccc",
@@ -69,7 +83,7 @@ const SingUp = () => {
             <>
               <label
                 htmlFor="password"
-                style={{ display: "block", marginBottom: "5px" }}
+                style={{ display: "block", marginBottom: "5px", color: "#ddd" }}
               >
                 Password:
               </label>
@@ -80,6 +94,7 @@ const SingUp = () => {
                 value={formData.password}
                 onChange={handleChange}
                 style={{
+                  boxSizing: "border-box",
                   width: "100%",
                   padding: "10px",
                   border: "1px solid #ccc",
