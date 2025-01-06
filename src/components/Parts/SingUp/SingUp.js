@@ -20,18 +20,55 @@ const SingUp = () => {
   return (
     <div
       style={{
+        position: "relative",
         margin: "auto",
-        marginTop: "38px",
+        marginTop: "52px",
         maxWidth: "320px",
         padding: "10px",
         borderRight: " 2px solid #ccc",
         borderBottom: "2px solid #ccc",
+        borderTop: "1px solid #888",
+        borderLeft: "1px solid #888",
         // box-shadow: "2px 2px 2px #bbb";
-        borderRadius: "10px",
+        borderEndEndRadius: "10px",
         boxShadow: "2px 2px 2px #bbb",
+        // boxSizing: "border-box",
       }}
     >
-      <form style={{ width: "100%" }}>
+      <div
+        style={{
+          color: "#fff",
+          position: "absolute",
+          top: "-37px",
+          left: "0px",
+          display: "flex",
+          flexDirection: "row",
+          gap: "2px",
+        }}
+      >
+        <label
+          style={{
+            border: "2px solid #888",
+            padding: "8px",
+            borderTopLeftRadius: "10px",
+            borderTopRightRadius: "10px",
+          }}
+        >
+          Login
+        </label>
+        <label
+          style={{
+            border: "2px solid #888",
+            padding: "8px",
+            borderTopLeftRadius: "10px",
+            borderTopRightRadius: "10px",
+          }}
+        >
+          Registration
+        </label>
+      </div>
+
+      <form style={{ width: "100%", marginTop: "10px" }}>
         <div style={{ marginBottom: "15px" }}>
           <label
             htmlFor="email"
