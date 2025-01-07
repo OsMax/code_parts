@@ -17,6 +17,16 @@ const SingUp = () => {
     }));
   };
 
+  const changeIsLogin = (e) => {
+    const name = e.target.getAttribute("name");
+
+    if (name === "log" && isLogin === false) {
+      setIsLogin(true);
+    } else if (name === "reg" && isLogin === true) {
+      setIsLogin(false);
+    }
+  };
+
   return (
     <div
       style={{
@@ -27,8 +37,8 @@ const SingUp = () => {
         padding: "10px",
         borderRight: " 2px solid #ccc",
         borderBottom: "2px solid #ccc",
-        borderTop: "1px solid #888",
-        borderLeft: "1px solid #888",
+        borderTop: "2px solid #888",
+        borderLeft: "2px solid #888",
         // box-shadow: "2px 2px 2px #bbb";
         borderEndEndRadius: "10px",
         boxShadow: "2px 2px 2px #bbb",
@@ -39,36 +49,55 @@ const SingUp = () => {
         style={{
           color: "#fff",
           position: "absolute",
-          top: "-37px",
-          left: "0px",
+          top: "-38px",
+          left: "-2px",
           display: "flex",
           flexDirection: "row",
           gap: "2px",
+          boxSizing: "border-box",
         }}
       >
         <label
+          name="log"
           style={{
             border: "2px solid #888",
             padding: "8px",
             borderTopLeftRadius: "10px",
             borderTopRightRadius: "10px",
+            borderBottomColor: isLogin ? "#282c33" : "#888",
+            textDecoration: isLogin ? "underline" : "none",
+            boxShadow: isLogin
+              ? "1px -1px 1px #bbb" // Левый верхний и правый
+              : "none",
+            cursor: "pointer",
           }}
+          onClick={changeIsLogin}
         >
           Login
         </label>
         <label
+          name="reg"
           style={{
             border: "2px solid #888",
             padding: "8px",
             borderTopLeftRadius: "10px",
             borderTopRightRadius: "10px",
+            borderBottomColor: !isLogin ? "#282c33" : "#888",
+            textDecoration: !isLogin ? "underline" : "none",
+            boxShadow: !isLogin
+              ? "1px -1px 1px #bbb" // Левый верхний и правый
+              : "none",
+            cursor: "pointer",
           }}
+          onClick={changeIsLogin}
         >
           Registration
         </label>
       </div>
 
-      <form style={{ width: "100%", marginTop: "10px" }}>
+      <form
+        style={{ width: "100%", marginTop: "10px", boxSizing: "border-box" }}
+      >
         <div style={{ marginBottom: "15px" }}>
           <label
             htmlFor="email"
@@ -120,7 +149,12 @@ const SingUp = () => {
             <>
               <label
                 htmlFor="password"
-                style={{ display: "block", marginBottom: "5px", color: "#ddd" }}
+                style={{
+                  display: "block",
+                  marginBottom: "5px",
+                  marginTop: "15px",
+                  color: "#ddd",
+                }}
               >
                 Password:
               </label>
@@ -157,7 +191,7 @@ const SingUp = () => {
             cursor: "pointer",
           }}
         >
-          Login
+          {isLogin ? "Login" : "Registration"}
         </button>
       </form>
     </div>
