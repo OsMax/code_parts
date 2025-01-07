@@ -162,7 +162,7 @@ const SingUp = () => {
                 type="password"
                 id="password2"
                 name="password2"
-                value={formData.password}
+                value={formData.password2}
                 onChange={handleChange}
                 style={{
                   boxSizing: "border-box",
