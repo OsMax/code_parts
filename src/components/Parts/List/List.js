@@ -12,8 +12,12 @@ const List = () => {
   const [list, setList] = useState([]);
 
   const getList = async () => {
+    console.log("111");
+
     try {
-      const { data } = await axios.get("http://localhost:3000/api/list");
+      const { data } = await axios.get(
+        "https://code-parts-server.onrender.com/api/list"
+      );
       setList(data); // Используем data из ответа
     } catch (error) {
       console.error("Error fetching list:", error.message);
