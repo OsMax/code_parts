@@ -52,8 +52,8 @@ const List = () => {
       <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
         <pre
           style={{
-            maxHeight: "200px",
-            width: "100%",
+            maxHeight: "240px",
+            width: "90%",
             scrollbarWidth: "thin",
             scrollbarColor: "#888 #2d2d2d",
           }}
