@@ -49,7 +49,14 @@ const List = () => {
           )}
         </ul>
       </div>
-      <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+      <div
+        style={{
+          display: "flex",
+          gap: 10,
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
+      >
         <pre
           style={{
             maxHeight: "240px",
@@ -63,7 +70,7 @@ const List = () => {
         <pre
           style={{
             maxHeight: "200px",
-            width: "100%",
+            width: "90%",
             scrollbarWidth: "thin",
             scrollbarColor: "#888 #2d2d2d",
           }}
