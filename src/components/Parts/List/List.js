@@ -14,8 +14,6 @@ const List = () => {
   const [list, setList] = useState([]);
 
   const getList = async () => {
-    console.log("111");
-
     try {
       const { data } = await axios.get(
         "https://code-parts-server.onrender.com/api/list"
@@ -42,7 +40,11 @@ const List = () => {
         <ul className={css.list}>
           {list.length > 0 ? (
             list.map((item) => {
-              return <li className={css.listItem}>{item.item}</li>;
+              return (
+                <li key={item.item} className={css.listItem}>
+                  {item.item}
+                </li>
+              );
             })
           ) : (
             <p style={{ color: "#bbb" }}>No items available</p>
