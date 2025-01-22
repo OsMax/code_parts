@@ -4,11 +4,8 @@ import "prismjs/themes/prism-tomorrow.min.css";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-css";
 import { example } from "./ListExample";
-// import { cssExample } from "./List.module.cssExample";
 import axios from "axios";
 import css from "./List.module.css";
-
-// const array = ["example 1", "example 2", "example 3"];
 
 const List = () => {
   const [list, setList] = useState([]);
@@ -23,6 +20,9 @@ const List = () => {
       console.error("Error fetching list:", error.message);
     }
   };
+
+  const copyCode = () => {};
+
   useEffect(() => {
     getList();
   }, []);
@@ -69,16 +69,6 @@ const List = () => {
         >
           <code className="language-javascript">{example}</code>
         </pre>
-        {/* <pre
-          style={{
-            maxHeight: "200px",
-            width: "90%",
-            scrollbarWidth: "thin",
-            scrollbarColor: "#888 #2d2d2d",
-          }}
-        >
-          <code className="language-css">{cssExample}</code>
-        </pre> */}
       </div>
     </div>
   );
