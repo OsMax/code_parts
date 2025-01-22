@@ -7,6 +7,8 @@ import { example } from "./ListExample";
 import axios from "axios";
 import css from "./List.module.css";
 
+import { ReactComponent as Copy } from "../../../assets/svg/copy.svg";
+
 const List = () => {
   const [list, setList] = useState([]);
 
@@ -21,7 +23,16 @@ const List = () => {
     }
   };
 
-  const copyCode = () => {};
+  const copyCode = () => {
+    navigator.clipboard
+      .writeText(example)
+      .then(() => {
+        alert("Скопировано: " + example);
+      })
+      .catch((error) => {
+        console.error("Ошибка копирования: ", error);
+      });
+  };
 
   useEffect(() => {
     getList();
@@ -53,22 +64,32 @@ const List = () => {
       </div>
       <div
         style={{
-          display: "flex",
-          gap: 10,
-          flexWrap: "wrap",
-          justifyContent: "center",
+          // display: "flex",
+          // gap: 10,
+          // flexWrap: "wrap",
+          // justifyContent: "center",
+          position: "relative",
+          width: "90%",
+          marginLeft: "auto",
+          marginRight: "auto",
         }}
       >
         <pre
           style={{
             maxHeight: "240px",
-            width: "90%",
+            // width: "90%",
             scrollbarWidth: "thin",
             scrollbarColor: "#888 #2d2d2d",
           }}
         >
           <code className="language-javascript">{example}</code>
         </pre>
+        <Copy
+          width={24}
+          height={24}
+          style={{ position: "absolute", top: 10, right: 16 }}
+          onClick={copyCode}
+        />
       </div>
     </div>
   );
