@@ -1,3 +1,13 @@
+.title {
+  padding: 20px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.title span {
+  color: rgb(199, 120, 221);
+}
+
 .container {
   position: relative;
   margin: auto;
