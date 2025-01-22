@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/573.1f2d7f84.chunk.js","mappings":"iJAAA,MAIA,EAJeA,KACNC,EAAAA,EAAAA,KAAA,OAAAC,SAAK,a","sources":["components/Parts/SingUp/SingUp.js"],"sourcesContent":["const SingUp = () => {\r\n  return <div>SingUp...</div>;\r\n};\r\n\r\nexport default SingUp;\r\n"],"names":["SingUp","_jsx","children"],"sourceRoot":""}
