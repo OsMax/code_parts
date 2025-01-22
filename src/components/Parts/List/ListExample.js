@@ -41,7 +41,7 @@ const List = ({array}) => {
             {list.length > 0 ? (
             list.map((item) => {
               return (
-                <li style={{ padding: 6, boxShadow: "2px 2px 2px #bbb" }}>
+                <li  key={item.item} style={{ padding: 6, boxShadow: "2px 2px 2px #bbb" }}>
                   {item.item}
                 </li>
               );

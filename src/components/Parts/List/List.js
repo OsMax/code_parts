@@ -4,7 +4,7 @@ import "prismjs/themes/prism-tomorrow.min.css";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-css";
 import { example } from "./ListExample";
-import { cssExample } from "./List.module.cssExample";
+// import { cssExample } from "./List.module.cssExample";
 import axios from "axios";
 import css from "./List.module.css";
 
@@ -69,7 +69,7 @@ const List = () => {
         >
           <code className="language-javascript">{example}</code>
         </pre>
-        <pre
+        {/* <pre
           style={{
             maxHeight: "200px",
             width: "90%",
@@ -78,7 +78,7 @@ const List = () => {
           }}
         >
           <code className="language-css">{cssExample}</code>
-        </pre>
+        </pre> */}
       </div>
     </div>
   );
