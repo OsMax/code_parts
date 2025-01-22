@@ -26,9 +26,15 @@ const Header = () => {
           <option value="" disabled style={{ color: "#888" }}>
             select an item...
           </option>
-          <option value="list">List</option>
-          <option value="auth">AuthForm</option>
-          <option value="option3">Опція 3</option>
+          <option value="list" className={css.forGet}>
+            List
+          </option>
+          <option value="auth" className={css.forGet}>
+            AuthForm
+          </option>
+          <option value="option3" className={css.forGet}>
+            Опція 3
+          </option>
         </select>
       </div>
     </header>
