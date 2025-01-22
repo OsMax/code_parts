@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import css from "./Header.module.css";
 
 const Header = () => {
-  const [part, setPart] = useState("");
+  const location = useLocation();
+  const value = location.pathname.slice(1);
+
+  const [part, setPart] = useState(value);
   const navigate = useNavigate();
 
   const handleChange = (event) => {
-    // console.log(event.target.value);
     setPart(event.target.value);
     navigate(`/${event.target.value}`);
   };
