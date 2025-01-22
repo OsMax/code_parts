@@ -3,8 +3,9 @@ import Prism from "prismjs";
 import "prismjs/themes/prism-tomorrow.min.css";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-css";
-import { example } from "./ListExample";
+import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
+import { example } from "./ListExample";
 import css from "./List.module.css";
 
 import { ReactComponent as Copy } from "../../../assets/svg/copy.svg";
@@ -17,7 +18,7 @@ const List = () => {
       const { data } = await axios.get(
         "https://code-parts-server.onrender.com/api/list"
       );
-      setList(data); // Используем data из ответа
+      setList(data);
     } catch (error) {
       console.error("Error fetching list:", error.message);
     }
@@ -27,10 +28,10 @@ const List = () => {
     navigator.clipboard
       .writeText(example)
       .then(() => {
-        alert("Скопировано: " + example);
+        toast.success("Code is copy");
       })
       .catch((error) => {
-        console.error("Ошибка копирования: ", error);
+        toast.error(error);
       });
   };
 
@@ -90,6 +91,7 @@ const List = () => {
           style={{ position: "absolute", top: 10, right: 16 }}
           onClick={copyCode}
         />
+        <ToastContainer />
       </div>
     </div>
   );
