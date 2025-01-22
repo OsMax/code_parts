@@ -3,7 +3,7 @@ import Layout from "./components/Layout/Layout";
 import Home from "./components/pages/Home/Home";
 
 import List from "./components/Parts/List/List";
-import SingUp from "./components/Parts/SingUp/SingUp";
+import AuthForm from "./components/Parts/AuthForm/AuthForm";
 
 import { Routes, Route, Navigate } from "react-router-dom";
 
@@ -13,7 +13,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="list" element={<List />} />
-        <Route path="sing" element={<SingUp />} />
+        <Route path="auth" element={<AuthForm />} />
         {/* <Route path="about" element={<AboutPage />} />
           <Route path="contacts" element={<ContactPage />} /> */}
       </Route>

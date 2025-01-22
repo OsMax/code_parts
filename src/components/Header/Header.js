@@ -27,7 +27,7 @@ const Header = () => {
             select an item...
           </option>
           <option value="list">List</option>
-          <option value="sing">SingUp</option>
+          <option value="auth">AuthForm</option>
           <option value="option3">Опція 3</option>
         </select>
       </div>
