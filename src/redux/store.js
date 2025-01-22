@@ -1,21 +1,38 @@
-// import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-// const choiceSlice = createSlice({
-//   name: "choice",
-//   initialState: { selectedChoice: "" },
-//   reducers: {
-//     setChoice: (state, action) => {
-//       state.selectedChoice = action.payload;
-//     },
-//   },
-// });
+import { authReducer } from "./auth/authSlice";
+// import { recipeReducer } from "./recipe/recipeSlice";
 
-// export const { setChoice } = choiceSlice.actions;
+const persistConfig = {
+  key: "root",
+  storage: AsyncStorage,
+  whitelist: ["token"],
+};
 
-// const store = configureStore({
-//   reducer: {
-//     choice: choiceSlice.reducer,
-//   },
-// });
+const persistRed = persistReducer(persistConfig, authReducer);
 
-// export default store;
+export const store = configureStore({
+  reducer: {
+    auth: persistRed,
+    // recipes: recipeReducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
+
+export const persistor = persistStore(store);
