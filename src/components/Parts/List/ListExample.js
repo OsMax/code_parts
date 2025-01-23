@@ -6,7 +6,7 @@ const List = ({array}) => {
 
   const getList = async () => {
     try {
-      const { data } = await axios.get("http://localhost:3000/api/list");
+      const { data } = await axios.get("--your api--");
       setList(data); 
     } catch (error) {
       console.error("Error fetching list:", error.message);
