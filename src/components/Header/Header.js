@@ -26,6 +26,9 @@ const Header = () => {
           <option value="" disabled style={{ color: "#888" }}>
             select an item...
           </option>
+          <option value="loaders" className={css.forGet}>
+            Loaders
+          </option>
           <option value="list" className={css.forGet}>
             List
           </option>
