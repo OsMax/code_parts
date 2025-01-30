@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { login, register } from "../../../redux/Auth/authOperation";
 import css from "./AuthForm.module.css";
 
 const SingUp = () => {
@@ -26,6 +27,11 @@ const SingUp = () => {
     } else if (name === "reg" && isLogin === true) {
       setIsLogin(false);
     }
+  };
+
+  const submit = (e) => {
+    e.preventDefault();
+    console.log(isLogin);
   };
 
   return (
@@ -61,7 +67,7 @@ const SingUp = () => {
           </label>
         </div>
 
-        <form className={css.form}>
+        <form className={css.form} onSubmit={submit}>
           <label htmlFor="email" className={css.label}>
             Email:
             <input
