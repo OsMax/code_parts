@@ -9,14 +9,14 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import storage from "redux-persist/lib/storage";
 
-import { authReducer } from "./auth/authSlice";
-// import { recipeReducer } from "./recipe/recipeSlice";
+import { authReducer } from "./Auth/authSlice";
+import { listReduser } from "./List/listSlice";
 
 const persistConfig = {
   key: "root",
-  storage: AsyncStorage,
+  storage,
   whitelist: ["token"],
 };
 
@@ -25,7 +25,7 @@ const persistRed = persistReducer(persistConfig, authReducer);
 export const store = configureStore({
   reducer: {
     auth: persistRed,
-    // recipes: recipeReducer,
+    list: listReduser,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
