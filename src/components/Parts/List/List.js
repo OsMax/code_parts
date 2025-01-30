@@ -4,25 +4,35 @@ import "prismjs/themes/prism-tomorrow.min.css";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-css";
 import { ToastContainer, toast } from "react-toastify";
-import axios from "axios";
+// import axios from "axios";
 import { example } from "./ListExample";
+import Loaders from "../Loaders/Loaders";
 import css from "./List.module.css";
+
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { getList } from "../../../redux/List/listOperation";
+import { selectList, selectLoader } from "../../../redux/List/listSelector";
 
 import { ReactComponent as Copy } from "../../../assets/svg/copy.svg";
 
 const List = () => {
-  const [list, setList] = useState([]);
+  // const [list, setList] = useState([]);
 
-  const getList = async () => {
-    try {
-      const { data } = await axios.get(
-        "https://code-parts-server.onrender.com/api/list"
-      );
-      setList(data);
-    } catch (error) {
-      console.error("Error fetching list:", error.message);
-    }
-  };
+  const dispatch = useDispatch();
+  const list = useSelector(selectList);
+  const loader = useSelector(selectLoader);
+
+  // const getList = async () => {
+  //   try {
+  //     const { data } = await axios.get(
+  //       "https://code-parts-server.onrender.com/api/list"
+  //     );
+  //     setList(data);
+  //   } catch (error) {
+  //     console.error("Error fetching list:", error.message);
+  //   }
+  // };
 
   const copyCode = () => {
     navigator.clipboard
@@ -36,7 +46,7 @@ const List = () => {
   };
 
   useEffect(() => {
-    getList();
+    dispatch(getList());
   }, []);
 
   useEffect(() => {
@@ -50,7 +60,7 @@ const List = () => {
       </h1>
       <div className={css.listContainer}>
         <ul className={css.list}>
-          {list.length > 0 ? (
+          {!loader > 0 ? (
             list.map((item) => {
               return (
                 <li key={item.item} className={css.listItem}>
@@ -59,7 +69,7 @@ const List = () => {
               );
             })
           ) : (
-            <p style={{ color: "#bbb" }}>No items available</p>
+            <Loaders />
           )}
         </ul>
       </div>
