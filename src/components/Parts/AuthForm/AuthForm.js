@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { login, register } from "../../../redux/Auth/authOperation";
+// import { login, register } from "../../../redux/Auth/authOperation";
 import css from "./AuthForm.module.css";
 
 const SingUp = () => {
@@ -8,7 +8,6 @@ const SingUp = () => {
     password: "",
     password2: "",
   });
-  // const [errors, setErrors] = useState({});
   const [isLogin, setIsLogin] = useState(true);
 
   const handleChange = (e) => {
