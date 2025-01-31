@@ -44,7 +44,7 @@ const List = () => {
 
   useEffect(() => {
     dispatch(getList());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     Prism.highlightAll();
