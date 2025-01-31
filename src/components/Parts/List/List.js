@@ -4,9 +4,8 @@ import "prismjs/themes/prism-tomorrow.min.css";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-css";
 import { ToastContainer, toast } from "react-toastify";
-// import axios from "axios";
 import { example } from "./ListExample";
-import Loaders from "../Loaders/Loaders";
+import Loader1 from "../Loaders/Loader1/Loader1";
 import css from "./List.module.css";
 
 import { useDispatch } from "react-redux";
@@ -17,8 +16,6 @@ import { selectList, selectLoader } from "../../../redux/List/listSelector";
 import { ReactComponent as Copy } from "../../../assets/svg/copy.svg";
 
 const List = () => {
-  // const [list, setList] = useState([]);
-
   const dispatch = useDispatch();
   const list = useSelector(selectList);
   const loader = useSelector(selectLoader);
@@ -69,16 +66,12 @@ const List = () => {
               );
             })
           ) : (
-            <Loaders />
+            <Loader1 />
           )}
         </ul>
       </div>
       <div
         style={{
-          // display: "flex",
-          // gap: 10,
-          // flexWrap: "wrap",
-          // justifyContent: "center",
           position: "relative",
           width: "90%",
           marginLeft: "auto",
@@ -88,7 +81,6 @@ const List = () => {
         <pre
           style={{
             maxHeight: "240px",
-            // width: "90%",
             scrollbarWidth: "thin",
             scrollbarColor: "#888 #2d2d2d",
           }}
