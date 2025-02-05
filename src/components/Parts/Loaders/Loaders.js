@@ -1,17 +1,10 @@
-import Prism from "prismjs";
-import "prismjs/themes/prism-tomorrow.min.css";
-import "prismjs/components/prism-javascript";
-import "prismjs/components/prism-css";
-import React, { useEffect } from "react";
+import React from "react";
 
 import css from "./Loader.module.css";
 import Loader1 from "./Loader1/Loader1";
-import { loader1 } from "./loadersExamle";
+import Loader2 from "./Loader2/Loader2";
 
 const Loaders = () => {
-  useEffect(() => {
-    Prism.highlightAll();
-  }, []);
   return (
     <div className={css.container}>
       <h1>
@@ -20,37 +13,13 @@ const Loaders = () => {
       <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
         <li
           style={{
-            display: "flex",
             width: "100%",
-            gap: "10px",
-            justifyContent: "space-around",
-            alignItems: "center",
-            flexWrap: "wrap",
           }}
         >
-          <div style={{ width: "30%" }}>
-            <Loader1 />
-          </div>
-          <pre
-            style={{
-              width: "30%",
-              height: "240px",
-              scrollbarWidth: "thin",
-              scrollbarColor: "#888 #2d2d2d",
-            }}
-          >
-            <code className="language-javascript">{loader1.js}</code>
-          </pre>
-          <pre
-            style={{
-              width: "30%",
-              height: "240px",
-              scrollbarWidth: "thin",
-              scrollbarColor: "#888 #2d2d2d",
-            }}
-          >
-            <code className="language-javascript">{loader1.css}</code>
-          </pre>
+          <Loader1 />
+        </li>
+        <li>
+          <Loader2 />
         </li>
       </ul>
     </div>
