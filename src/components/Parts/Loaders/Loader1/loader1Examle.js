@@ -1,4 +1,4 @@
-export const loader1 = {
+export const loaderExample = {
   js: `
 <div className={css.loaderont}>
     <div className={css.loader}></div>

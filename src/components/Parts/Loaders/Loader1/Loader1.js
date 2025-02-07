@@ -1,17 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import css from "./Loader1.module.css";
-import Prism from "prismjs";
-import "prismjs/themes/prism-tomorrow.min.css";
-import "prismjs/components/prism-javascript";
-import "prismjs/components/prism-css";
 
-import { loader1 } from "./loader1Examle";
+import { loaderExample } from "./loader1Examle";
+
+import CodeWrite from "../CodeWrite";
 
 const Loader1 = () => {
-  useEffect(() => {
-    Prism.highlightAll();
-  }, []);
   return (
     <div className={css.loadercont}>
       <div
@@ -24,26 +19,7 @@ const Loader1 = () => {
       >
         <div className={css.loader}></div>
       </div>
-      <pre
-        style={{
-          width: "30%",
-          height: "240px",
-          scrollbarWidth: "thin",
-          scrollbarColor: "#888 #2d2d2d",
-        }}
-      >
-        <code className="language-javascript">{loader1.js}</code>
-      </pre>
-      <pre
-        style={{
-          width: "30%",
-          height: "240px",
-          scrollbarWidth: "thin",
-          scrollbarColor: "#888 #2d2d2d",
-        }}
-      >
-        <code className="language-javascript">{loader1.css}</code>
-      </pre>
+      <CodeWrite loaderExample={loaderExample} />
     </div>
   );
 };
