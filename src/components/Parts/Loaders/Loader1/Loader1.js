@@ -6,7 +6,7 @@ import { loaderExample } from "./loader1Examle";
 
 import CodeWrite from "../CodeWrite";
 
-const Loader1 = () => {
+const Loader1 = ({ statusCode }) => {
   return (
     <div className={css.loadercont}>
       <div
@@ -19,7 +19,7 @@ const Loader1 = () => {
       >
         <div className={css.loader}></div>
       </div>
-      <CodeWrite loaderExample={loaderExample} />
+      {statusCode && <CodeWrite loaderExample={loaderExample} />}
     </div>
   );
 };
