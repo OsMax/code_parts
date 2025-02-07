@@ -29,7 +29,7 @@ const CodeWrite = ({ loaderExample }) => {
           scrollbarColor: "#888 #2d2d2d",
         }}
       >
-        <code className="language-javascript">{loaderExample.css}</code>
+        <code className="language-css">{loaderExample.css}</code>
       </pre>
     </>
   );
