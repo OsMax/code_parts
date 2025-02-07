@@ -11,15 +11,11 @@ const Loaders = () => {
         <span>/</span>loaders
       </h1>
       <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
-        <li
-          style={{
-            width: "100%",
-          }}
-        >
-          <Loader1 />
+        <li>
+          <Loader1 statusCode={true} />
         </li>
         <li>
-          <Loader2 />
+          <Loader2 statusCode={true} />
         </li>
       </ul>
     </div>
