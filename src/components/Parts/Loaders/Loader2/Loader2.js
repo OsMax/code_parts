@@ -5,7 +5,7 @@ import css from "./Loader2.module.css";
 import { loaderExample } from "./loader2Examle";
 import CodeWrite from "../CodeWrite";
 
-const Loader2 = () => {
+const Loader2 = ({ statusCode }) => {
   return (
     <div className={css.loadercont}>
       <div
@@ -18,7 +18,8 @@ const Loader2 = () => {
       >
         <div className={css.loader}></div>
       </div>
-      <CodeWrite loaderExample={loaderExample} />
+
+      {statusCode && <CodeWrite loaderExample={loaderExample} />}
     </div>
   );
 };
