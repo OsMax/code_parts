@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const BASEURL = "http://192.168.226.123:3000";
+const BASEURL = "https://code-parts-server.onrender.com";
 
 axios.defaults.baseURL = BASEURL;
 
@@ -9,36 +9,19 @@ const tokenSet = (token) => {
   axios.defaults.headers.common.authorization = token;
 };
 
-export const register = createAsyncThunk("auth/register", async (data) => {
-  const { avatar, info } = data;
+export const register = createAsyncThunk("auth/register", async ({ info }) => {
   try {
-    const formData = new FormData();
-    if (avatar) {
-      formData.append("avatar", {
-        uri: avatar,
-        name: "image.jpg",
-        type: "image/jpeg",
-      });
-    }
-    formData.append("info", JSON.stringify(info));
-
-    const userFetch = await fetch(`${BASEURL}/api/users/register`, {
-      method: "POST",
-      body: formData,
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
-    const user = await userFetch.json();
-    return user;
+    const { data } = await axios.post("/api/users/register", info);
+    tokenSet(`Bearer ${data.token}`);
+    return data;
   } catch (error) {
     console.log(error);
   }
 });
 
-export const logIn = createAsyncThunk("auth/login", async (credential) => {
+export const logIn = createAsyncThunk("auth/login", async ({ info }) => {
   try {
-    const { data } = await axios.post("/api/users/login", credential);
+    const { data } = await axios.post("/api/users/login", info);
     tokenSet(`Bearer ${data.token}`);
     return data;
   } catch (error) {
