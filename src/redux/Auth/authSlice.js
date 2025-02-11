@@ -26,6 +26,24 @@ const authSlice = createSlice({
       .addCase(register.rejected, (state) => {
         state.isLogIn = false;
         state.loader = false;
+      }) // login
+      .addCase(logIn.pending, (state) => {
+        state.loader = true;
+      })
+      .addCase(logIn.fulfilled, (state, { payload }) => {
+        state.user = { ...payload.user };
+        state.token = payload.token;
+        state.isLogIn = true;
+        state.loader = false;
+      })
+      .addCase(logIn.rejected, (state) => {
+        state.isLogIn = false;
+        state.loader = false;
+      })
+      // logOut
+      .addCase(logOut.fulfilled, (state) => {
+        state.user = { ...initialState.user };
+        state.isLogIn = false;
       })
       // edit
       .addCase(editUser.pending, (state) => {
@@ -54,24 +72,6 @@ const authSlice = createSlice({
         state.user = { ...initialState.user };
         state.isLogIn = false;
         state.loader = false;
-      })
-      // login
-      .addCase(logIn.pending, (state) => {
-        state.loader = true;
-      })
-      .addCase(logIn.fulfilled, (state, { payload }) => {
-        state.user = { ...payload.user };
-        state.token = payload.token;
-        state.isLogIn = true;
-        state.loader = false;
-      })
-      .addCase(logIn.rejected, (state) => {
-        state.isLogIn = false;
-        state.loader = false;
-      })
-      .addCase(logOut.fulfilled, (state) => {
-        state.user = { ...initialState.user };
-        state.isLogIn = false;
       });
   },
 });
