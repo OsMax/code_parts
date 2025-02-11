@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-// import { login, register } from "../../../redux/Auth/authOperation";
+import { useDispatch } from "react-redux";
+import { logIn, register } from "../../../redux/Auth/authOperation";
 import css from "./AuthForm.module.css";
 
 const SingUp = () => {
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -30,7 +33,18 @@ const SingUp = () => {
 
   const submit = (e) => {
     e.preventDefault();
-    console.log(isLogin);
+
+    if (isLogin) {
+      dispatch(
+        logIn({ info: { email: formData.email, password: formData.password } })
+      );
+    } else {
+      dispatch(
+        register({
+          info: { email: formData.email, password: formData.password },
+        })
+      );
+    }
   };
 
   return (
