@@ -118,7 +118,6 @@ const SingUp = () => {
               />
             </label>
           )}
-          {/* {errors.password && <p className={css.error}>{errors.password}</p>} */}
           <button type="submit" className={css.submitBtn}>
             {checkForm ? "Login" : "Registration"}
           </button>
