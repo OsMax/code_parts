@@ -11,7 +11,7 @@ const SingUp = () => {
     password: "",
     password2: "",
   });
-  const [isLogin, setIsLogin] = useState(true);
+  const [checkForm, setCheckForm] = useState(true);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,17 +24,17 @@ const SingUp = () => {
   const changeIsLogin = (e) => {
     const name = e.target.getAttribute("name");
 
-    if (name === "log" && isLogin === false) {
-      setIsLogin(true);
-    } else if (name === "reg" && isLogin === true) {
-      setIsLogin(false);
+    if (name === "log" && checkForm === false) {
+      setCheckForm(true);
+    } else if (name === "reg" && checkForm === true) {
+      setCheckForm(false);
     }
   };
 
   const submit = (e) => {
     e.preventDefault();
 
-    if (isLogin) {
+    if (checkForm) {
       dispatch(
         logIn({ info: { email: formData.email, password: formData.password } })
       );
@@ -58,9 +58,9 @@ const SingUp = () => {
             name="log"
             className={css.forChoise}
             style={{
-              borderBottomColor: isLogin ? "#282c33" : "#888",
-              textDecoration: isLogin ? "underline" : "none",
-              boxShadow: isLogin ? "1px -1px 1px #bbb" : "none",
+              borderBottomColor: checkForm ? "#282c33" : "#888",
+              textDecoration: checkForm ? "underline" : "none",
+              boxShadow: checkForm ? "1px -1px 1px #bbb" : "none",
             }}
             onClick={changeIsLogin}
           >
@@ -70,9 +70,9 @@ const SingUp = () => {
             name="reg"
             className={css.forChoise}
             style={{
-              borderBottomColor: !isLogin ? "#282c33" : "#888",
-              textDecoration: !isLogin ? "underline" : "none",
-              boxShadow: !isLogin ? "1px -1px 1px #bbb" : "none",
+              borderBottomColor: !checkForm ? "#282c33" : "#888",
+              textDecoration: !checkForm ? "underline" : "none",
+              boxShadow: !checkForm ? "1px -1px 1px #bbb" : "none",
             }}
             onClick={changeIsLogin}
           >
@@ -105,7 +105,7 @@ const SingUp = () => {
               className={css.input}
             />
           </label>
-          {!isLogin && (
+          {!checkForm && (
             <label htmlFor="password" className={css.label}>
               Password:
               <input
@@ -120,7 +120,7 @@ const SingUp = () => {
           )}
           {/* {errors.password && <p className={css.error}>{errors.password}</p>} */}
           <button type="submit" className={css.submitBtn}>
-            {isLogin ? "Login" : "Registration"}
+            {checkForm ? "Login" : "Registration"}
           </button>
         </form>
       </div>
