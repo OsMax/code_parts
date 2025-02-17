@@ -6,3 +6,5 @@ const IsLogin = () => {
     </div>
   );
 };
+
+export default IsLogin;
