@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { logIn, register } from "../../../redux/Auth/authOperation";
+import { logIn, register, current } from "../../../redux/Auth/authOperation";
 import { selectIsLogIn } from "../../../redux/Auth/authSelector";
 import css from "./AuthForm.module.css";
 import IsLogin from "./IsLogin/IsLogin";
@@ -48,6 +49,10 @@ const SingUp = () => {
       );
     }
   };
+
+  useEffect(() => {
+    dispatch(current());
+  }, [dispatch]);
 
   return (
     <>
