@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { logIn, register } from "../../../redux/Auth/authOperation";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { logIn, register, current } from "../../../redux/Auth/authOperation";
 import { selectIsLogIn } from "../../../redux/Auth/authSelector";
 import css from "./AuthForm.module.css";
@@ -8,6 +7,7 @@ import IsLogin from "./IsLogin/IsLogin";
 
 const SingUp = () => {
   const dispatch = useDispatch();
+  const isLogin = useSelector(selectIsLogIn);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -132,6 +132,7 @@ const SingUp = () => {
           </form>
         </div>
       )}
+      {isLogin && <IsLogin />}
     </>
   );
 };
