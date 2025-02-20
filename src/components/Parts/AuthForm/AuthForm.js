@@ -100,8 +100,6 @@ const SingUp = () => {
                 className={css.input}
               />
             </label>
-
-            {/* {errors.email && <p className={css.error}>{errors.email}</p>} */}
             <label htmlFor="password" className={css.label}>
               Password:{" "}
               <input
