@@ -2,6 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logIn, register, current } from "../../../redux/Auth/authOperation";
 import { selectIsLogIn } from "../../../redux/Auth/authSelector";
+
+import Prism from "prismjs";
+import "prismjs/themes/prism-tomorrow.min.css";
+import "prismjs/components/prism-javascript";
+import "prismjs/components/prism-css";
+import { example } from "./AuthFormExample";
 import css from "./AuthForm.module.css";
 import IsLogin from "./IsLogin/IsLogin";
 
@@ -53,6 +59,9 @@ const SingUp = () => {
   useEffect(() => {
     dispatch(current());
   }, [dispatch]);
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
 
   return (
     <>
@@ -131,6 +140,24 @@ const SingUp = () => {
         </div>
       )}
       {isLogin && <IsLogin />}
+      <div
+        style={{
+          position: "relative",
+          width: "90%",
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
+        <pre
+          style={{
+            maxHeight: "240px",
+            scrollbarWidth: "thin",
+            scrollbarColor: "#888 #2d2d2d",
+          }}
+        >
+          <code className="language-javascript">{example}</code>
+        </pre>
+      </div>
     </>
   );
 };
