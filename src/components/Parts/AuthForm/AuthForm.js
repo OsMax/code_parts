@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logIn, register, current } from "../../../redux/Auth/authOperation";
 import { selectIsLogIn } from "../../../redux/Auth/authSelector";
-
+import { ToastContainer, toast } from "react-toastify";
 import Prism from "prismjs";
 import "prismjs/themes/prism-tomorrow.min.css";
 import "prismjs/components/prism-javascript";
@@ -10,10 +10,22 @@ import "prismjs/components/prism-css";
 import { example } from "./AuthFormExample";
 import css from "./AuthForm.module.css";
 import IsLogin from "./IsLogin/IsLogin";
+import { ReactComponent as Copy } from "../../../assets/svg/copy.svg";
 
 const SingUp = () => {
   const dispatch = useDispatch();
   const isLogin = useSelector(selectIsLogIn);
+
+  const copyCode = () => {
+    navigator.clipboard
+      .writeText(example)
+      .then(() => {
+        toast.success("Code is copy");
+      })
+      .catch((error) => {
+        toast.error(error);
+      });
+  };
 
   const [formData, setFormData] = useState({
     email: "",
@@ -156,7 +168,14 @@ const SingUp = () => {
           }}
         >
           <code className="language-javascript">{example}</code>
-        </pre>
+        </pre>{" "}
+        <Copy
+          width={24}
+          height={24}
+          style={{ position: "absolute", top: 10, right: 16 }}
+          onClick={copyCode}
+        />
+        <ToastContainer />
       </div>
     </>
   );
