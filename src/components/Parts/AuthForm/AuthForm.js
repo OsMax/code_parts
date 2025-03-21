@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logIn, register, current } from "../../../redux/Auth/authOperation";
 import { selectIsLogIn } from "../../../redux/Auth/authSelector";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import Prism from "prismjs";
 import "prismjs/themes/prism-tomorrow.min.css";
 import "prismjs/components/prism-javascript";
