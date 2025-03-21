@@ -11,21 +11,22 @@ import { example } from "./AuthFormExample";
 import css from "./AuthForm.module.css";
 import IsLogin from "./IsLogin/IsLogin";
 import { ReactComponent as Copy } from "../../../assets/svg/copy.svg";
+import { copyCode } from "../../../helpers/copyCode";
 
 const SingUp = () => {
   const dispatch = useDispatch();
   const isLogin = useSelector(selectIsLogIn);
 
-  const copyCode = () => {
-    navigator.clipboard
-      .writeText(example)
-      .then(() => {
-        toast.success("Code is copy");
-      })
-      .catch((error) => {
-        toast.error(error);
-      });
-  };
+  // const copyCode = () => {
+  //   navigator.clipboard
+  //     .writeText(example)
+  //     .then(() => {
+  //       toast.success("Code is copy");
+  //     })
+  //     .catch((error) => {
+  //       toast.error(error);
+  //     });
+  // };
 
   const [formData, setFormData] = useState({
     email: "",
@@ -173,7 +174,7 @@ const SingUp = () => {
           width={24}
           height={24}
           style={{ position: "absolute", top: 10, right: 16 }}
-          onClick={copyCode}
+          onClick={() => copyCode(example)}
         />
         <ToastContainer />
       </div>
