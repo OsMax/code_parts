@@ -3,7 +3,7 @@ import Prism from "prismjs";
 import "prismjs/themes/prism-tomorrow.min.css";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-css";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { example } from "./ListExample";
 import Loader1 from "../Loaders/Loader1/Loader1";
 import css from "./List.module.css";
@@ -14,6 +14,8 @@ import { getList } from "../../../redux/List/listOperation";
 import { selectList, selectLoader } from "../../../redux/List/listSelector";
 
 import { ReactComponent as Copy } from "../../../assets/svg/copy.svg";
+
+import { copyCode } from "../../../helpers/copyCode";
 
 const List = () => {
   const dispatch = useDispatch();
@@ -31,16 +33,16 @@ const List = () => {
   //   }
   // };
 
-  const copyCode = () => {
-    navigator.clipboard
-      .writeText(example)
-      .then(() => {
-        toast.success("Code is copy");
-      })
-      .catch((error) => {
-        toast.error(error);
-      });
-  };
+  // const copyCode = () => {
+  //   navigator.clipboard
+  //     .writeText(example)
+  //     .then(() => {
+  //       toast.success("Code is copy");
+  //     })
+  //     .catch((error) => {
+  //       toast.error(error);
+  //     });
+  // };
 
   useEffect(() => {
     dispatch(getList());
@@ -91,7 +93,7 @@ const List = () => {
           width={24}
           height={24}
           style={{ position: "absolute", top: 10, right: 16 }}
-          onClick={copyCode}
+          onClick={() => copyCode(example)}
         />
         <ToastContainer />
       </div>
